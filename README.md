@@ -1,8 +1,9 @@
-# qiankun-example
+# micro-template
 
-qiankun 实战 demo，父应用 vue，子应用使用 `react`, `vue` 和 `原生HTML`。
+使用框架 qiankun, 作为模板:
 
-[微前端qiankun从搭建到部署的实践](https://juejin.im/post/6875462470593904653)
+1. 主应用 vue，子应用使用 `react`, `vue` 和 `原生HTML`
+2. 最简单的功能和简单的demo
 
 ## 开始
 
@@ -16,6 +17,12 @@ npm i
 
 ```shell
 npm run install
+```
+
+如果sub-html中的没有安装上
+
+```shell
+cd sub-html && npm i
 ```
 
 一键启动所有所有应用
