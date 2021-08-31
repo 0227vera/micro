@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "qiankun micro-template",
   "main": "index.js",
-  "keywords": ["micro-template", "qiankun"],
+  "keywords": [
+    "micro-template",
+    "qiankun"
+  ],
   "author": "salvatore",
   "license": "MIT",
   "scripts": {

@@ -1,20 +1,35 @@
 <template>
   <div class="layout-wrapper">
     <div class="layout-header">
-      <div class="logo">micro-template</div>
-      <ul class="sub-apps">
-        <li
+      <el-menu
+        class="el-menu-demo"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#ffd04b"
+        :default-active="current"
+        mode="horizontal"
+        @select="goto"
+      >
+        <el-submenu index="main">
+          <template slot="title">我的应用</template>
+          <el-menu-item
+            v-for="item in microApps"
+            :key="item.activeRule"
+            :index="item.activeRule"
+          >
+            {{item.name}}
+          </el-menu-item>
+        </el-submenu>
+        <el-menu-item
           v-for="item in microApps"
-          :class="{active: item.activeRule === current}"
-          :key="item.name"
-          @click="goto(item)"
+          :key="item.activeRule"
+          :index="item.activeRule"
         >
-          {{ item.name }}
-        </li>
-      </ul>
-      <div class="userinfo">主应用的store中state：{{ JSON.stringify(state) }}</div>
+          {{item.name}}
+        </el-menu-item>
+      </el-menu>
     </div>
-    <div id="subapp-viewport"></div>
+    <div id="subapp-viewport" />
   </div>
 </template>
 
@@ -22,6 +37,7 @@
 import NProgress from 'nprogress'
 import microApps from './micro-app'
 import store from '@/store'
+import { Menu, MenuItem, Submenu } from 'element-ui'
 export default {
   name: 'App',
   data () {
@@ -50,11 +66,14 @@ export default {
       }
     }
   },
-  components: {},
+  components: {
+    'el-menu': Menu,
+    'el-menu-item': MenuItem,
+    'el-submenu': Submenu
+  },
   methods: {
-    goto (item) {
-      history.pushState(null, item.activeRule, item.activeRule)
-      // this.current = item.name
+    goto (item, event) {
+      history.pushState(null, item, item)
     },
     bindCurrent () {
       const path = window.location.pathname
@@ -98,37 +117,11 @@ html, body{
   margin: 0 !important;
   padding: 0;
 }
-.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
-  .layout-wrapper{
-    .layout-header{
-      height: 50px;
-      width: 100%;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      line-height: 50px;
-      position: relative;
-     .logo {
-        float: left;
-        margin: 0 50px;
-      }
-      .sub-apps {
-        list-style: none;
-        margin: 0;
-        li{
-          list-style: none;
-          display: inline-block;
-          padding: 0 20px;
-          cursor: pointer;
-          &.active{
-            color: #42b983;
-            text-decoration: underline;
-          }
-        }
-      }
-      .userinfo{
-        position: absolute;
-        right: 100px;
-        top: 0;
-      }
-    }
+.layout-wrapper{
+  .layout-header{
+    height: 60px;
+    width: 100%;
+    overflow: hidden;
   }
+}
 </style>
