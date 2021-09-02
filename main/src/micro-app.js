@@ -15,6 +15,11 @@ const microApps = [
     name: 'sub-html',
     entry: process.env.VUE_APP_SUB_HTML,
     activeRule: '/sub-html'
+  },
+  {
+    name: 'sub-demo',
+    entry: process.env.VUE_APP_SUB_DEMO,
+    activeRule: '/sub-demo'
   }
 ]
 
