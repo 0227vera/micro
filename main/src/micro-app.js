@@ -2,12 +2,17 @@ import store from './store'
 
 const microApps = [
   {
-    name: 'sub-vue',
+    name: '最简单的vue的结构',
     entry: process.env.VUE_APP_SUB_VUE,
     activeRule: '/sub-vue'
   },
   {
-    name: 'sub-react',
+    name: '复杂的vue demo',
+    entry: process.env.VUE_APP_SUB_DEMO,
+    activeRule: '/vue-demo'
+  },
+  {
+    name: '最简单的react的结构',
     entry: process.env.VUE_APP_SUB_REACT,
     activeRule: '/sub-react'
   },
@@ -15,11 +20,6 @@ const microApps = [
     name: 'sub-html',
     entry: process.env.VUE_APP_SUB_HTML,
     activeRule: '/sub-html'
-  },
-  {
-    name: 'sub-demo',
-    entry: process.env.VUE_APP_SUB_DEMO,
-    activeRule: '/sub-demo'
   }
 ]
 
